@@ -7,6 +7,11 @@ import (
 )
 
 func main() {
+	/*
+		*Byte
+		in Go is an alias for uint8 meaning it is an integer value. This integer value is of 8 bits and it represents one byte i.e number between 0-255). A single byte therefore can represent ASCII characters. Golang does not have any data type of ‘char’. Therefore
+		var r byte = 'a'
+	*/
 	var r byte = 'a'
 
 	//Print size
