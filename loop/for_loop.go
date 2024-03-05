@@ -63,6 +63,13 @@ func main() {
 		fmt.Println(i)
 		i++
 	}
+
+	//String
+	fmt.Println("\nSample string on for loop")
+	sample := "a£c"
+	for i := 0; i < len(sample); i++ {
+		fmt.Printf("%c\n", sample[i])
+	}
 }
 
 func test() {
