@@ -1,8 +1,7 @@
-package main
+package multipleinheritance
 
 import "fmt"
 
-// Inheritance
 type iBase1 interface {
 	say()
 }
@@ -19,21 +18,20 @@ func (b *base1) say() {
 	fmt.Println("Hi from say function")
 }
 
-type base2 struct {
-}
+type base2 struct{}
 
 func (b *base1) walk() {
 	fmt.Println("Hi from walk function")
 }
 
 type child struct {
-	base1 //embedded
-	base2 //embedded
+	base1 //embedding
+	base2 //embedding
 	style string
 }
 
-func (b *child) clear() {
-	fmt.Println("clear from child's function")
+func (c *child) clear() {
+	fmt.Println("Clear from child's function")
 }
 
 func check1(b iBase1) {
