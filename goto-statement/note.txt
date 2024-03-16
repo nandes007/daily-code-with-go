@@ -1,0 +1,4 @@
+The label can be valid go statement other than a keyword. 
+As soon as the goto statement is encountered the control is transferred to the referred label and execution continues from there. 
+The label is only visible inside the function where it has been declared. 
+Any reference from outside the function will result in a compilation error.
