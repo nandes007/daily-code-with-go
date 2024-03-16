@@ -1,0 +1,6 @@
+Purpose
+uintptr can be used for below purposes:
+One purpose of uintptr is to be used along with unsafe.Pointer for unsafe memory access. Arithmetic operations cannot be performed on unsafe.Pointer. To perform such arithmetic
+unsafe. Pointer is converted to uintptr
+arithmetic is then performed on uintptr
+uintptr is converted back to unsafe.Pointer  to access the object now pointed by the address
