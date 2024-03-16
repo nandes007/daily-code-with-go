@@ -1,0 +1,28 @@
+Context Interface
+type Context interface {
+    //It retures a channel when a context is cancelled, timesout (either when deadline is reached or timeout time has finished)
+    Done() <-chan struct{}
+
+    //Err will tell why this context was cancelled. A context is cancelled in three scenarios.
+    // 1. With explicit cancellation signal
+    // 2. Timeout is reached
+    // 3. Deadline is reached
+    Err() error
+
+    //Used for handling deallines and timeouts
+    Deadline() (deadline time.Time, ok bool)
+
+    //Used for passing request scope values
+    Value(key interface{}) interface{}
+}
+
+================
+
+BestPractices and Caveats
+Following is a list of best practices that you can follow while using a context.
+
+Do not store a context within a struct type
+Context should flow through your program. For example, in case of an HTTP request, a new context can be created for each incoming request which can be used to hold a request_id or put some common information in the context like currently logged in user which might be useful for that particular request.
+Always pass context as the first argument to a function.
+Whenever you are not sure whether to use the context or not, it is better to use the context.ToDo() as a placeholder.
+Only the parent goroutine or function should the cancel context. Therefore do not pass the cancelFunc to downstream goroutines or functions. Golang will allow you to pass the cancelFunc around to child goroutines but it is not a recommended practice
